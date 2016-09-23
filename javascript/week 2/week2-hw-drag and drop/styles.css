@@ -1,0 +1,11 @@
+div{
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	background: tomato;
+	color: green;
+	position: absolute;
+	line-height: 100px;
+	left: 40px;
+	top: 10px;
+}
