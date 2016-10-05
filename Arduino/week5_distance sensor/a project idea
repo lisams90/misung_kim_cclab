@@ -6,8 +6,9 @@ Transmission: Emitting a short ultrasonic pulse at intervals
 Receiver: Receiving an echo signal back which hit an object
 
 Distance(cm) = pulseIn(ECHO_PIN, HIGH)/58;
-I calculated the distance based on the time difference between the transmitter and receiver, and measured distance of the object. Then, I made the LED turn on, when an object is detected within a certain distance (10 cm) from the ultrasonic sensors. I also can see the distance in a serial monitor.
+I calculated the distance based on the time difference between the transmitter and receiver, and measured distance of the object.
+Then, I made the LED turn on, when an object is detected within a certain distance (10 cm) from the ultrasonic sensors.
+I also can see the distance in a serial monitor.
 
 Materials: An ultrasonic sensor, LED, A resistor, 8 jumper cables 
-
 *Still need to figure out which part has wrong
