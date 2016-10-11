@@ -1,6 +1,6 @@
 int trig =8;
 int echo =9;
-int led =13;
+int led =A0;
  
  void setup() {
   Serial.begin(9600);
