@@ -1,0 +1,64 @@
+#include <Servo.h>
+
+Servo myservo;
+
+int TRIG_PIN = 2;
+int ECHO_PIN = 3;
+int LED = 10;
+int button = 8;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(LED, OUTPUT);
+  myservo.attach(6);
+
+  myservo.write(0);
+
+  pinMode(button, INPUT);
+
+}
+
+void loop()
+{
+  int distance = 0;
+
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  distance = pulseIn(ECHO_PIN, HIGH) / 58.2;
+  Serial.print("\nDistance:");
+  Serial.print(distance);
+  Serial.println("cm\n");
+  delay(1000);
+
+  int leaf_flag = 0;
+  boolean leaf_status = digitalRead(button);
+
+  if (distance < 10) {
+
+    myservo.write(90);              // tell servo to go to position in variable 'pos'
+
+    if (leaf_status == LOW && leaf_flag == 0) {
+      digitalWrite(LED, HIGH);
+      delay(10);
+      Serial.println(leaf_status);
+  }
+
+  else {
+    digitalWrite(LED, LOW);
+    delay(10);
+    Serial.println(leaf_status);
+    leaf_flag = 0;
+  }
+
+}
+else {
+  myservo.write(0);
+  digitalWrite(LED, LOW);
+  delay(10);
+}
+delay(10);
+
+}
